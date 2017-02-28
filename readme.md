@@ -62,12 +62,13 @@ In addition to the webpack entry file, there will be three scripts involved in t
 
 - complete `human.js` constructor
 - render humans on `Canvas`
+- movement logic for Onek
 - set up logic for Onek to consume humans
 
 **Day 3**:   Goals for the day:
 
-- Export an `Automata` object with correct type and handling logic
-- Have a functional grid on the `Canvas` frontend that correctly handles iterations from one generation of the game to the next
+- create logic in humans.js to move humans around the abyss.
+- lights for onek to avoid.
 
 
 **Day 4**: Install the controls for the user to interact with the game.  Style the frontend, making it polished and professional.

@@ -2,7 +2,7 @@
 
 ### Background
 
-The player is Onek, a shoggoform derelict AI unit tasked with protecting a city that ceased to exist aeons ago and lies drowned beneath the waves ov a dead, cold world.
+The player is Onek, a shoggoform derelict AI unit tasked with protecting a city that ceased to exist aeons ago and lies drowned beneath the waves of a dead, cold world.
 
 Humans have descended to your nameless domain to claim the secrets of your masters. You must pick them off one by one. Raising their fear until they abandon their foolish quest.
 
@@ -24,14 +24,10 @@ In addition, this project will include:
 - [ ] A production README
 
 
-### Architecture and Technologies
-
-**NB**: one of the main things you should be researching and deciding upon while you write this proposal is what technologies you plan to use.  Identify and create a plan of attack for the major technical challenges in your project.
-
 This project will be implemented with the following technologies:
 
 - Vanilla JavaScript for overall structure and game logic,
-- `Easel.js` or `Sketch.js` with `HTML5 Canvas` for DOM manipulation and rendering,
+- `paper.js` with `HTML5 Canvas` for DOM manipulation and rendering,
 - Webpack to bundle and serve up the various scripts.
 
 I'm looking to make something like this for the creature:

@@ -8,7 +8,7 @@ window.onload = () => {
   const onek = new Creature(paper);
   // let destination = paper.Point.random();
   const creature = new paper.Path.Rectangle([75, 75], [100, 100]);
-  creature.strokeColor = 'black';
+  creature.strokeColor = '#ff00ee';
   onek.gestate();
   paper.view.onFrame = () => {
     creature.rotate(3);

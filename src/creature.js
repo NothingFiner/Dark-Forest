@@ -25,11 +25,13 @@ class Onek {
   }
 
   gestate() {
-    this.core = new Paper.Path.Oval({
-      from: [0, 0],
-      to: [13, 13],
+    this.core = new Paper.Path.Circle({
+      center: this.position,
+      radius: 15,
       fillColor: 'black',
       strokeColor: null,
+      shadowColor: new Paper.Color(100, 0, 200),
+      shadowBlur: 30,
     });
     this.core.scale(2.3);
     for (let i = 0; i < this.size; i += 1) {

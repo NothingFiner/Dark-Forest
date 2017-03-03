@@ -10,16 +10,17 @@ class Weapon {
     this.size = 1;
     // this.tentacle = new Paper.Path();
     this.vector = new Paper.Point({
-      angle: 0,
+      angle: 270,
       length: 20,
     });
     this.friction = 0.95;
-    this.speed = 1;
+    this.speed = 2;
     this.maxSteer = 4.5;
     this.steering = 1.5;
     this.maxSpeed = 10;
     this.minSpeed = 1;
     this.position = this.center;
+    this.position.y = this.view.size.height;
     this.lastRotation = 0;
     this.count = 0;
   }

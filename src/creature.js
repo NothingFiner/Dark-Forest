@@ -5,10 +5,10 @@ class Onek {
   constructor(paperScope) {
     this.view = paperScope.view;
     this.center = paperScope.view.center;
-    this.tentacles = 3;
-    this.partLength = 5;
+    // this.tentacles = 3;
+    // this.partLength = 5;
     this.size = 20;
-    this.tentacle = new Paper.Path();
+    // this.tentacle = new Paper.Path();
     this.vector = new Paper.Point({
       angle: 0,
       length: 20,
@@ -27,18 +27,18 @@ class Onek {
   gestate() {
     this.core = new Paper.Path.Circle({
       center: this.position,
-      radius: 15,
+      radius: 5,
       fillColor: 'black',
       strokeColor: null,
       shadowColor: new Paper.Color(100, 0, 200),
       shadowBlur: 30,
     });
     this.core.scale(2.3);
-    for (let i = 0; i < this.size; i += 1) {
-      this.tentacle.add((this.position.x - (i * this.partLength)), this.position.y);
-    }
-    this.tentacle.strokeColor = 'black';
-    this.tentacle.strokeWidth = 5;
+    // for (let i = 0; i < this.size; i += 1) {
+    //   this.tentacle.add((this.position.x - (i * this.partLength)), this.position.y);
+    // }
+    // this.tentacle.strokeColor = 'black';
+    // this.tentacle.strokeWidth = 5;
   }
 
   left() {
@@ -113,7 +113,7 @@ class Onek {
     //   lastVector = newVector;
     // }
     this.core.position = this.position;
-    this.tentacle.smooth();
+    this.core.smooth();
     this.constrain();
   }
 }

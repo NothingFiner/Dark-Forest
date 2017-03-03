@@ -78,14 +78,14 @@ class Onek {
   }
 
   constrain() {
-    const bounds = this.tentacle.bounds;
+    const bounds = this.core.bounds;
     const size = this.view.size;
     if (!bounds.intersects(Paper.view.bounds)) {
       if (this.position.x < -bounds.width) this.position.x = size.width + bounds.width;
       if (this.position.y < -bounds.height) this.position.y = size.height + bounds.height;
       if (this.position.x > size.width + bounds.width) this.position.x = -bounds.width;
       if (this.position.y > size.height + bounds.height) this.position.y = -bounds.height;
-      this.path.position = this.position;
+      this.core.position = this.position;
     }
   }
 

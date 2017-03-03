@@ -1,13 +1,13 @@
 import Paper from 'paper';
-import { getNewPosition, getNewVector } from './util/paper_util';
+import { getNewPosition } from './util/paper_util';
 
-class Onek {
+class Weapon {
   constructor(paperScope) {
     this.view = paperScope.view;
     this.center = paperScope.view.center;
     // this.tentacles = 3;
     // this.partLength = 5;
-    this.size = 20;
+    this.size = 1;
     // this.tentacle = new Paper.Path();
     this.vector = new Paper.Point({
       angle: 0,
@@ -27,13 +27,12 @@ class Onek {
   gestate() {
     this.core = new Paper.Path.Circle({
       center: this.position,
-      radius: 5,
+      radius: 10,
       fillColor: 'black',
       strokeColor: null,
       shadowColor: new Paper.Color(100, 0, 200),
       shadowBlur: 30,
     });
-    this.core.scale(2.3);
     // for (let i = 0; i < this.size; i += 1) {
     //   this.tentacle.add((this.position.x - (i * this.partLength)), this.position.y);
     // }
@@ -77,6 +76,11 @@ class Onek {
     if (this.speed < -this.minSpeed) this.speed = -this.minSpeed;
   }
 
+  grow() {
+    this.size += 1;
+    this.core.scale(1.1);
+  }
+
   constrain() {
     const bounds = this.core.bounds;
     const size = this.view.size;
@@ -118,4 +122,4 @@ class Onek {
   }
 }
 
-export default Onek;
+export default Weapon;

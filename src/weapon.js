@@ -79,7 +79,7 @@ class Weapon {
 
   grow() {
     this.size += 1;
-    this.core.scale(1.1);
+    this.core.scale(2);
   }
 
   constrain() {

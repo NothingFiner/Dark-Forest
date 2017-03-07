@@ -1,4 +1,5 @@
 import paper from 'paper';
+import { sample } from 'lodash';
 import { getNewPosition } from './util/paper_util';
 
 class Planet {
@@ -14,7 +15,7 @@ class Planet {
   }
 
   getVelocity() {
-    return Math.sqrt((this.mass * 50) / this.orbitalRadius);
+    return Math.sqrt((50) / (this.orbitalRadius));
   }
 
   getOrbitalVector() {
@@ -25,7 +26,8 @@ class Planet {
   }
 
   spawn() {
-    this.body = new paper.Raster('planet');
+    const PLANET_NAMES = ['transformed', 'ideal', 'harsh', 'smoke', 'gas', 'ice'];
+    this.body = new paper.Raster(sample(PLANET_NAMES));
     this.body.position = this.position;
     this.body.size = [this.mass * 2, this.mass * 2];
 
@@ -40,7 +42,7 @@ class Planet {
     // this.position = this.position.add(this.vector.normalize(this.velocity));
     // this.body.position = this.position;
     // this.vector.angle =  Math.atan2(this.position.x - this.starCenter.x, this.position.y - this.starCenter.y);
-    this.body.rotate(this.vector.angle, this.starCenter);
+    this.body.rotate(this.velocity, this.starCenter);
   }
 }
 

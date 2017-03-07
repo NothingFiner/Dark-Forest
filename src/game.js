@@ -39,13 +39,14 @@ window.onload = () => {
 
   paper.view.onFrame = () => {
     portal.rotate(3);
-    if (paper.Key.isDown('space')) weapon.grow();
     if (paper.Key.isDown('a')) weapon.left();
     if (paper.Key.isDown('d')) weapon.right();
     if (paper.Key.isDown('w')) weapon.forward();
     if (paper.Key.isDown('s')) weapon.reverse();
     star.pulse();
     planet.orbit();
+    planet2.orbit();
+    planet3.orbit();
     planet4.orbit();
     weapon.draw();
     collisionCheck();

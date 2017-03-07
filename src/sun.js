@@ -8,7 +8,7 @@ class Sun {
     this.view = paperScope.view;
     this.center = paperScope.view.center;
     this.lagrange = this.center;
-    this.mass = 50;
+    this.mass = Math.floor(Math.random() * 50) + 35;
     this.color = randomStarColor();
     this.rgb = getRGB(this.color);
     this.spots = [];

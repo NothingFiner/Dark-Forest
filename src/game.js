@@ -8,10 +8,10 @@ paper.install(window);
 window.onload = () => {
   paper.setup('game');
   const star = new Sun(paper);
-  const planet = new Planet(paper, { radius: 200, mass: 10 });
-  const planet2 = new Planet(paper, { radius: 400, mass: 30 });
-  const planet3 = new Planet(paper, { radius: 500, mass: 25 });
-  const planet4 = new Planet(paper, { radius: 300, mass: 6 });
+  const planet = new Planet(paper, { radius: 200, mass: 10, sun: star.mass });
+  const planet2 = new Planet(paper, { radius: 400, mass: 30, sun: star.mass });
+  const planet3 = new Planet(paper, { radius: 500, mass: 25, sun: star.mass });
+  const planet4 = new Planet(paper, { radius: 300, mass: 6, sun: star.mass });
   const weapon = new Weapon(paper);
   const portal = new paper.Path.Rectangle([paper.view.center.x - 50, weapon.position.y - 60], [100, 100]);
   portal.strokeColor = '#ff00ee';

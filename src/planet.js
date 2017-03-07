@@ -6,6 +6,7 @@ class Planet {
   constructor(paperScope, planetSeed) {
     this.orbitalRadius = planetSeed.radius;
     this.starCenter = paperScope.view.center.clone();
+    this.starMass = planetSeed.sun;
     this.position = paperScope.view.center.clone();
     this.position.x -= this.orbitalRadius;
     this.mass = planetSeed.mass;
@@ -15,7 +16,7 @@ class Planet {
   }
 
   getVelocity() {
-    return Math.sqrt((50) / (this.orbitalRadius));
+    return Math.sqrt((this.starMass) / (this.orbitalRadius));
   }
 
   getOrbitalVector() {

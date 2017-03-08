@@ -5,7 +5,8 @@ import Sun from './sun';
 import Planet from './planet';
 
 paper.install(window);
-window.onload = () => {
+
+const Game = () => {
   paper.setup('game');
   const star = new Sun(paper);
   const planet = new Planet(paper, { radius: 200, mass: 10, sun: star.mass });
@@ -51,4 +52,12 @@ window.onload = () => {
     weapon.draw();
     collisionCheck();
   };
+};
+
+window.onload = () => {
+  document.getElementById('startGame')
+    .addEventListener('click', () => {
+      document.getElementById('menu').classList.add('hide');
+      Game();
+    });
 };

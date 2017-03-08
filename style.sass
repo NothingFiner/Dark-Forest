@@ -1,3 +1,15 @@
+//vars
+
+$neon-green: #44D62C
+
+body, button, img
+  margin: 0
+  padding: 0
+  background: transparent
+  border: inherit
+  color: inherit
+  font-family: inherit
+
 body
   font-family: sans-serif
   background: tranparent
@@ -8,6 +20,39 @@ canvas
 
 img
   display: none
+
+.menu
+  transition: opacity .25s
+  width: 80vw
+  position: absolute
+  text-align: center
+  z-index: 100
+  margin: 4rem
+  padding: 2rem
+  background: transparent
+  border-color: $neon-green
+  border: 1px solid
+  color: $neon-green
+  line-height: 2rem
+  font-family: 'Bungee Hairline', cursive
+  text-shadow: 0 0 1px lighten($neon-green, 10%)
+  box-shadow: 0 0 2px lighten($neon-green, 10%), inset 0 0 2px lighten($neon-green, 10%)
+  &.hide
+    opacity: 0
+  button
+    border: 1px solid
+    background: transparent
+    border-radius: 0
+    padding: 1rem
+    font-size: 1rem
+    cursor: pointer
+    p
+      line-height: 2
+    &:hover
+      color: #090A0F
+      background: $neon-green
+      border-color: lighten($neon-green, 10%)
+      box-shadow: 1px 1px 8px lighten($neon-green, 10%), -1px -1px 8px lighten($neon-green, 10%)
 
 // n is number of stars required
 @function multiple-box-shadow ($n)

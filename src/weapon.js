@@ -77,9 +77,10 @@ class Weapon {
     if (this.speed < -this.minSpeed) this.speed = -this.minSpeed;
   }
 
-  grow() {
+  grow(mass) {
     this.size += 1;
-    this.core.scale(2);
+    const scale = 1 + (10 / mass);
+    this.core.scale(scale);
   }
 
   constrain() {

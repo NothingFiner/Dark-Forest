@@ -18,6 +18,14 @@ class Planet {
   }
 
   spawn() {
+    this.orbitRing = new paper.Path.Circle({
+      radius: this.orbitalRadius,
+      center: this.starCenter,
+      strokeWidth: 1,
+      strokeColor: 'rgba(68,214,44, 0.1)',
+      fillColor: null,
+      dashArray: [2, 10],
+    });
     this.body = new paper.Raster(this.type);
     this.body.position = this.position;
     this.body.size = [this.mass * 2, this.mass * 2];

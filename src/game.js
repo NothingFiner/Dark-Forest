@@ -11,27 +11,39 @@ const Game = () => {
   const star = new Sun(paper);
   const system = new System(paper, star.mass);
   const weapon = new Weapon(paper);
+  const startPos = weapon.position;
   const portal = new paper.Path.Rectangle([paper.view.center.x - 50, weapon.position.y - 60], [100, 100]);
   portal.strokeColor = '#ff00ee';
 
-  // const collisionCheck = () => {
-  //   if (weapon.core.hitTest(planet.body.position) && planet.body.visible) {
-  //     weapon.grow();
-  //     planet.body.visible = false;
-  //   }
-  //   if (weapon.core.hitTest(planet2.body.position) && planet2.body.visible) {
-  //     weapon.grow();
-  //     planet2.body.visible = false;
-  //   }
-  //   if (weapon.core.hitTest(planet3.body.position) && planet3.body.visible) {
-  //     weapon.grow();
-  //     planet3.body.visible = false;
-  //   }
-  //   if (weapon.core.hitTest(planet4.body.position) && planet4.body.visible) {
-  //     weapon.grow();
-  //     planet4.body.visible = false;
-  //   }
-  // };
+  const collisionCheck = () => {
+    if (weapon.position !== startPos) {
+      system.planets.forEach((planet) => {
+        if (planet.body.hitTest(weapon.core.position) && planet.body.visible) {
+          if (weapon.size * 10 >= planet.mass) {
+            weapon.grow(planet.mass);
+            planet.body.visible = false;
+          }
+        }
+      });
+    }
+
+  // if (weapon.core.hitTest(planet.body.position) && planet.body.visible) {
+  //   weapon.grow();
+  //   planet.body.visible = false;
+  // }
+  // if (weapon.core.hitTest(planet2.body.position) && planet2.body.visible) {
+  //   weapon.grow();
+  //   planet2.body.visible = false;
+  // }
+  // if (weapon.core.hitTest(planet3.body.position) && planet3.body.visible) {
+  //   weapon.grow();
+  //   planet3.body.visible = false;
+  // }
+  // if (weapon.core.hitTest(planet4.body.position) && planet4.body.visible) {
+  //   weapon.grow();
+  //   planet4.body.visible = false;
+  // }
+  };
 
   weapon.gestate();
 
@@ -43,6 +55,7 @@ const Game = () => {
     if (paper.Key.isDown('s')) weapon.reverse();
     star.pulse();
     system.orbit();
+    collisionCheck();
     weapon.draw();
   };
 };

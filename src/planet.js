@@ -1,17 +1,15 @@
 import paper from 'paper';
-import { sample } from 'lodash';
-import { getNewPosition } from './util/paper_util';
 
 class Planet {
-  constructor(paperScope, planetSeed) {
+  constructor(planetSeed) {
     this.orbitalRadius = planetSeed.radius;
-    this.starCenter = paperScope.view.center.clone();
-    this.starMass = planetSeed.sun;
-    this.position = paperScope.view.center.clone();
+    this.starCenter = planetSeed.center;
+    this.starMass = planetSeed.starMass;
+    this.position = this.starCenter.clone();
     this.position.x -= this.orbitalRadius;
     this.mass = planetSeed.mass;
+    this.type = planetSeed.type;
     this.velocity = this.getVelocity();
-    this.vector = this.getOrbitalVector();
     this.spawn();
   }
 
@@ -19,30 +17,13 @@ class Planet {
     return Math.sqrt((this.starMass) / (this.orbitalRadius));
   }
 
-  getOrbitalVector() {
-    return new paper.Point({
-      angle: Math.atan2(this.position.x - this.starCenter.x, this.position.y - this.starCenter.y),
-      length: this.velocity,
-    });
-  }
-
   spawn() {
-    const PLANET_NAMES = ['transformed', 'ideal', 'harsh', 'smoke', 'gas', 'ice'];
-    this.body = new paper.Raster(sample(PLANET_NAMES));
+    this.body = new paper.Raster(this.type);
     this.body.position = this.position;
     this.body.size = [this.mass * 2, this.mass * 2];
-
-    // new paper.Path.Circle({
-    //   radius: this.mass,
-    //   center: this.position,
-    //   fillColor: 'blue',
-    // });
   }
 
   orbit() {
-    // this.position = this.position.add(this.vector.normalize(this.velocity));
-    // this.body.position = this.position;
-    // this.vector.angle =  Math.atan2(this.position.x - this.starCenter.x, this.position.y - this.starCenter.y);
     this.body.rotate(this.velocity, this.starCenter);
   }
 }

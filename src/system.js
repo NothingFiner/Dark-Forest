@@ -18,7 +18,7 @@ class System {
   }
 
   seed() {
-    while (this.systemMass < this.maxMass && this.currentRadius < this.minRadius) {
+    while (this.systemMass < this.maxMass && this.currentRadius < this.minRadius && this.planets.length < 8) {
       const planetMass = Math.floor(Math.random() * (this.stellarMass / 6)) + sample(PLANET_SIZES);
       const planetType = sample(PLANET_TYPES);
       const orbitalRadius = Math.floor(Math.random() * planetMass) + this.currentRadius;

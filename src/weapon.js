@@ -28,7 +28,7 @@ class Weapon {
   gestate() {
     this.core = new Paper.Path.Circle({
       center: this.position,
-      radius: 10,
+      radius: 15,
       fillColor: 'black',
       strokeColor: null,
       shadowColor: new Paper.Color(100, 0, 200),

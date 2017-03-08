@@ -19,18 +19,38 @@
     <img src="images/ooze.png" id="ooze" />
     <img src="images/fear.png" id="fear" />
     <img src="images/glory.png" id="glory" />
-    <div id="stars"></div>
+    <div id="stars">
+
+    </div>
     <div class="menu" id="menu">
       <h1>The Dark Forest</h1>
-      <p>
+      <section>
         Coordinates recieved for system containing dangerous life.<br/>
         This system must be purged.<br/>
         The weapon is prepared.<br/>
         Consume the worlds.<br/>
         Cleanse the system of dangerous life.<br/>
-        Ensure the safety of our civilisation.
-      </p>
+        Ensure the safety of our civilisation
+      </section>
+      <section>
+        <h3>Instructions</h3>
+        <ul>
+          <li><span>W</span> Accelerate Weapon</li>
+          <li><span>S</span> Decellerate Weapon</li>
+          <li><span>A</span> and <span>D</span> increase angle of vector left or right</li>
+          <li>consume the planets, starting with the smallest</li>
+        </ul>
+      </section>
       <button id="startGame">Engage Weapon</button>
+    </div>
+    <div id="status" class="status">
+      <section></section>
+      <section></section>
+      <main>
+        IN TRANSIT
+      </main>
+      <section></section>
+      <section></section>
     </div>
     <div id="container">
       <canvas id="game" resize></canvas>

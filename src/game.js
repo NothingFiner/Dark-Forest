@@ -11,8 +11,8 @@ const Game = () => {
   const star = new Sun(paper);
   const system = new System(paper, star.mass);
   const weapon = new Weapon(paper);
-  const startPos = weapon.position;
   const portal = new paper.Path.Rectangle([paper.view.center.x - 50, weapon.position.y - 60], [100, 100]);
+  const startPos = weapon.position;
   portal.strokeColor = '#ff00ee';
 
   const collisionCheck = () => {
@@ -27,7 +27,11 @@ const Game = () => {
       });
     }
   };
-
+  setTimeout(() => {
+    document.getElementById('container').classList.add('active');
+    document.getElementById('status').classList.remove('active');
+    document.getElementById('stars').classList.remove('transit');
+  }, 5000);
   weapon.gestate();
 
   paper.view.onFrame = () => {
@@ -47,6 +51,8 @@ window.onload = () => {
   document.getElementById('startGame')
     .addEventListener('click', () => {
       document.getElementById('menu').classList.add('hide');
+      document.getElementById('status').classList.add('active');
+      document.getElementById('stars').classList.add('transit');
       Game();
     });
 };

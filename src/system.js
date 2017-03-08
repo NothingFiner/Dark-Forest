@@ -1,7 +1,7 @@
 import { sample } from 'lodash';
 import Planet from './planet';
 
-const PLANET_TYPES = ['transformed', 'ideal', 'harsh', 'smoke', 'gas', 'ice', 'vein', 'ooze', 'fear', 'glory'];
+const PLANET_TYPES = ['transmuted', 'drydeal', 'cloud', 'venom', 'dust', 'transformed', 'ideal', 'harsh', 'smoke', 'gas', 'ice', 'vein', 'ooze', 'fear', 'glory'];
 const PLANET_SIZES = [5, 6, 8, 10, 15, 20];
 
 class System {

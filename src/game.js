@@ -14,6 +14,7 @@ const Game = () => {
   const portal = new paper.Path.Rectangle([paper.view.center.x - 50, weapon.position.y - 60], [100, 100]);
   const startPos = weapon.position;
   portal.strokeColor = '#ff00ee';
+  portal.visible = false;
 
   const collisionCheck = () => {
     if (weapon.position !== startPos) {
@@ -33,6 +34,12 @@ const Game = () => {
     document.getElementById('stars').classList.remove('transit');
   }, 5000);
   weapon.gestate();
+  weapon.core.visible = false;
+  setTimeout(() => {
+    weapon.core.visible = true;
+    portal.visible = true;
+  }, 6000);
+
 
   paper.view.onFrame = () => {
     portal.rotate(3);

@@ -4,7 +4,7 @@ import { randomStarColor, getRGB } from './util/colors';
 const STAR_COLORS = ['#f39c12', '#e74c3c', '#3498db', '#f1c40f', '#ecf0f1']
 
 class Sun {
-  constructor(paperScope, sunSeed) {
+  constructor(paperScope) {
     this.view = paperScope.view;
     this.center = paperScope.view.center;
     this.lagrange = this.center;

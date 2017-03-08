@@ -18,7 +18,7 @@ const Game = () => {
   const collisionCheck = () => {
     if (weapon.position !== startPos) {
       system.planets.forEach((planet) => {
-        if (planet.body.hitTest(weapon.core.position) && planet.body.visible) {
+        if ((planet.body.hitTest(weapon.core.position) || weapon.core.hitTest(planet.body.position)) && planet.body.visible) {
           if (weapon.size * 10 >= planet.mass) {
             weapon.grow(planet.mass);
             planet.body.visible = false;
@@ -26,23 +26,6 @@ const Game = () => {
         }
       });
     }
-
-  // if (weapon.core.hitTest(planet.body.position) && planet.body.visible) {
-  //   weapon.grow();
-  //   planet.body.visible = false;
-  // }
-  // if (weapon.core.hitTest(planet2.body.position) && planet2.body.visible) {
-  //   weapon.grow();
-  //   planet2.body.visible = false;
-  // }
-  // if (weapon.core.hitTest(planet3.body.position) && planet3.body.visible) {
-  //   weapon.grow();
-  //   planet3.body.visible = false;
-  // }
-  // if (weapon.core.hitTest(planet4.body.position) && planet4.body.visible) {
-  //   weapon.grow();
-  //   planet4.body.visible = false;
-  // }
   };
 
   weapon.gestate();

@@ -1,70 +1,48 @@
-## Onek: Guardian
+# Dark Forest
 
-### Background
+[Play Dark Forest](http://efinerdesign.com/game.html)
 
-The player is Onek, a shoggoform derelict AI unit tasked with protecting a city that ceased to exist aeons ago and lies drowned beneath the waves of a dead, cold world.
+Dark Forest is a JavaScript browser game inspired by Katamari Damacy and Cixin Liu's Remembrance of Earth's past Trilogy. The player controls an advanced alien weapon and must destroy the planets in the correct order.
 
-Humans have descended to your nameless domain to claim the secrets of your masters. You must pick them off one by one. Raising their fear until they abandon their foolish quest.
+## Features and Implementation
 
-essentially this is a spooky clone of katamari damacy with added element of avoiding lights.
+### Technologies
 
-### Functionality & MVP  
+Dark Forest is built with Canvas animation library Paper.js. However, instead of using that library's PaperScript syntax, Dark Forest is implemented in straight ES6, bundled up with Webpack. The bundler also compiles serves the game's SASS styles, which are responsible for the game's background and menu animations.
 
-With this game, users will be able to:
+Planetary velocities are calculated through a simplification of orbital physics:
 
-- [ ] Start and pause
-- [ ] control Onek using a mouse and asdf.
-- [ ] Swing tentacles to consume foolish ape creatures in their frail 3 dimensions.
-- [ ] Avoid the humans' lights.
-- [ ] Grow in strength and size as you consume mortals.
+`Velocity = Sqrt(StellarMass/OrbitalRadius)`
 
-In addition, this project will include:
+### Game Objects
 
-- [ ] An About modal describing the background and rules of the game
-- [ ] A production README
+- `Weapon`: Renders the player, contains logic for moving player in response to user input and increasing player size when a planet is consumed.
+- `Star`: Renders the solar system's star, with a random mass between 35 and 85, and one of five colors. Also handles pulsing animation for star.
+- `Planet` : Renders a planet based on a planetSeed object, which contains it's mass oribtalRadius, and one of 14 sprite types. Handles orbit.
+- `System` : Calls the render of `Planets` from a randomized set of seeds and the mass of the system's `Star`. All `Planets` are kept in an array as an attribute of the `System` class, to simplify hit testing and calling the orbit functions for each `planet`.
 
+### User Interface
 
-This project will be implemented with the following technologies:
-
-- Vanilla JavaScript for overall structure and game logic,
-- `paper.js` with `HTML5 Canvas` for DOM manipulation and rendering,
-- Webpack to bundle and serve up the various scripts.
-
-I'm looking to make something like this for the creature:
-
-https://codepen.io/soulwire/pen/KLrBz
-
-In addition to the webpack entry file, there will be three scripts involved in this project:
-
-`controls.js`: this script will handle the input logic for ONEK.
-
-`onek.js`: this script will handle Onek, last of the ancient servitors. Zir movement animations and so forth.
-
-`environment.js`: this script will contain the logic for YOUR DARK DOMAIN.
-
-`humans.js`: this script will handle the pathing of each individual  
-
-`human.js`: constructor script for individual humans
-
-### Implementation Timeline
-
-**Day 1**: Setup all necessary Node modules, including getting webpack up and running and `Easel.js` installed.  Create `webpack.config.js` as well as `package.json`. Learn the basics of `Easel.js` and/or `sketch.js`.  Goals for the day:
-
-- Get a green bundle with `webpack`.
-- Render Onek on screen.
-- Resources for ruins and human divers.
-
-**Day 2**:
-
-- complete `human.js` constructor
-- render humans on `Canvas`
-- movement logic for Onek
-- set up logic for Onek to consume humans
-
-**Day 3**:   Goals for the day:
-
-- create logic in humans.js to move humans around the abyss.
-- lights for onek to avoid.
+- `paper` : All visible game elements are called on this class from Paper.js. Animations and hit testing are all called through its `onFrame` method.
+- `Game` : Initializes the `paper` object on the `#game` Canvas element and renders initial game objects, before setting up `onFrame`.
+- `collisionCheck` : Checks if the weapon is in the same space as a planet.
+- `isOver` : Checks if either end state condition has been reached and displays appropriate menu.
 
 
-**Day 4**: Install the controls for the user to interact with the game.  Style the frontend, making it polished and professional.
+## Running Dark Forest
+
+### Prerequisites
+
+An up to date version of [npm](https://www.npmjs.com).
+
+### Project Setup
+
+1. `git clone https://github.com/nothingfiner/dark-forest.git`
+2. `cd dark-forest`
+3. `npm install`
+4. `npm run webpack`
+
+### Starting a Local Server
+1. `npm install -g http-server` (This globally installs a simple web server to serve the page locally)
+2. `http-server`
+3. Visit `http://localhost:8080/`

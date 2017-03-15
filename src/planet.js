@@ -22,7 +22,9 @@ class Planet {
       radius: this.orbitalRadius,
       center: this.starCenter,
       strokeWidth: 1,
-      strokeColor: 'rgba(68,214,44, 0.1)',
+      strokeColor: 'rgba(68,214,44, 0.2)',
+      shdowColor: 'rgb(68,214,44)',
+      shdowBlur: 10,
       fillColor: null,
       dashArray: [2, 10],
     });

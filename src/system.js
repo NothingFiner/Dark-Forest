@@ -11,6 +11,7 @@ class System {
     this.maxMass = Math.floor(Math.random() * 100) + (this.stellarMass * 2);
     this.planetTypes = PLANET_TYPES;
     this.planets = [];
+    this.bodyCount = 0;
     this.systemMass = 5;
     this.currentRadius = this.stellarMass * 2.5;
     this.minRadius = this.center.x - (this.stellarMass * 1.5);
@@ -33,6 +34,7 @@ class System {
       }));
       this.systemMass += planetMass;
       this.currentRadius += (planetMass * 4);
+      this.bodyCount += 1
     }
   }
 

@@ -80,7 +80,7 @@ class Weapon {
   grow(mass) {
     this.size += 1;
     const scale = 1 + (10 / mass);
-    this.core.scale(scale);
+    this.core.scale(1.1);
   }
 
   constrain() {

@@ -28,6 +28,17 @@ const Game = () => {
       });
     }
   };
+
+  const won = () => {
+    document.getElementById('stars').classList.add('transit');
+    setTimeout(() => {
+      document.getElementById('status-text').innerHTML = 'PURGED';
+      document.getElementById('status').classList.add('active');
+      paper.project.clear();
+      paper.project.activeLayer.removeChildren();
+    }, 1000);
+  };
+
   setTimeout(() => {
     document.getElementById('container').classList.add('active');
     document.getElementById('status').classList.remove('active');
@@ -37,12 +48,10 @@ const Game = () => {
   weapon.core.visible = false;
   setTimeout(() => {
     weapon.core.visible = true;
-    portal.visible = true;
   }, 6000);
 
 
   paper.view.onFrame = () => {
-    portal.rotate(3);
     if (paper.Key.isDown('a')) weapon.left();
     if (paper.Key.isDown('d')) weapon.right();
     if (paper.Key.isDown('w')) weapon.forward();
@@ -51,6 +60,9 @@ const Game = () => {
     system.orbit();
     collisionCheck();
     weapon.draw();
+    if (weapon.size > system.bodyCount) {
+      won();
+    }
   };
 };
 

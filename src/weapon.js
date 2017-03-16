@@ -7,7 +7,7 @@ class Weapon {
     this.center = paperScope.view.center;
     // this.tentacles = 3;
     // this.partLength = 5;
-    this.size = 1;
+    this.size = 0;
     // this.tentacle = new Paper.Path();
     this.vector = new Paper.Point({
       angle: 270,

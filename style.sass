@@ -77,12 +77,14 @@ img
   padding-top: calc(50vh - 5rem)
   text-align: center
   visibility: hidden
+  position: absolute
+  padding-left: 11vw
   &.active
     animation: expand_in 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)
     visibility: visible
   section, main
     margin: 0 1vw
-    background: $danger
+    background: transparentize($danger, .25)
     animation: pulse 1s linear infinite
     height: 100%
   section
